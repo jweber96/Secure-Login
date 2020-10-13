@@ -1,0 +1,20 @@
+CREATE TABLE User
+(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Email VARCHAR(255),
+    Password VARCHAR(255),
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Phone VARCHAR(10),
+    Role INT,
+    CreatedAt DATETIME DEFAULT(getdate())
+);
+
+CREATE TABLE Note
+(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Note VARCHAR(120),
+    CreatedAt DATETIME DEFAULT(getdate()),
+    userId INTEGER NOT NULL,
+    FOREIGN KEY (userId) REFERENCES User(Id)
+);
